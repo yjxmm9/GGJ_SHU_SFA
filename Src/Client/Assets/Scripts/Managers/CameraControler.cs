@@ -24,7 +24,7 @@ public class CameraControler : MonoBehaviour
         else
         {
             Vector3 targetPos = gm.rootControler.root.GetPosition(gm.rootControler.rootPointIndex - 1);
-            targetPos = new Vector3(Mathf.Clamp(targetPos.x, border.x, border.y), targetPos.y, mainCamera.transform.position.z) + Vector3.down * 3f;
+            targetPos = new Vector3(Mathf.Clamp(targetPos.x, border.x, border.y), targetPos.y, mainCamera.transform.position.z) + Vector3.down * 1.5f;
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPos, lerpSpeed);
         }
 

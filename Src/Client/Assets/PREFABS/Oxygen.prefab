@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3322510951387424051}
   - component: {fileID: 5498399534361719080}
   - component: {fileID: 6293772629588864120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Oxygen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,4 +118,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   lerpSpeed: 0.005
   targetPos: {x: 0, y: 0, z: 0}
-  moveDis: 0.85
+  moveDis: 3

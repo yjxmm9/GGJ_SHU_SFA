@@ -134,7 +134,7 @@ public class RootControler : MonoBehaviour
                 //gM.sfx.PlayDrinkSFX();
                 health = Mathf.Min(health + water.waterAmount, maxHealth);
                 Move();
-                Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), -0.02f);
+                Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-0.5f, 0.5f), -0.02f);
                 Instantiate(oxygenPrefab, oxygenPosition, transform.rotation);
                 //oxygen.Initialize(root.GetPosition(root.positionCount - 1), gM, 0.5f);
                 //smallRoots.Add(smallRoot.gameObject);
@@ -219,13 +219,13 @@ public class RootControler : MonoBehaviour
             root.positionCount = root.positionCount + 1;
             rootPointIndex++;
             //if (rootPointIndex % (int)(40f / gM.CapRoot + 3f) == 0)
-            //{
-            //    SmallRoot smallRoot = Instantiate(smallRootPrefab, transform).GetComponent<SmallRoot>();
-            //    smallRoot.Initialize(direction, root.GetPosition(root.positionCount - 3), gM, 0.3f + gM.CapRoot / 5f);
-            //    smallRoots.Add(smallRoot.gameObject);
-
-            //}
+            if (rootPointIndex % (int)(40f / 2f + 3f) == 0)
+            {
+                Vector3 oxygenPosition = lastPosition + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(0, 1f), -0.02f);
+                Instantiate(oxygenPrefab, oxygenPosition, transform.rotation);
+            }
             //currentTimeUntilNewRootPoint = timeUntilNewRootPoint * gM.CapSpeed;
+            currentTimeUntilNewRootPoint = timeUntilNewRootPoint * 1f;
             currentTimeUntilNewRootPoint = timeUntilNewRootPoint * 1.1f;
             UpdateRootTip();
             //gM.sfx.PlayGrowingSFX();

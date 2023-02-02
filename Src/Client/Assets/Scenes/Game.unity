@@ -4244,7 +4244,9 @@ MonoBehaviour:
   speed: 5
   turnspeed: 2
   gap: {x: 0, y: 0}
-  targetDir: {x: 0, y: 0}
+  bodyPrefab: {fileID: 346796484417339939, guid: fa984f9875fcf1744a8d8049f67b7a10,
+    type: 3}
+  wormGameObject: {fileID: 714728276}
   bodyList:
   - {fileID: 1047230525}
   - {fileID: 1970205132}

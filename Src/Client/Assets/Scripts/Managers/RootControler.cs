@@ -29,6 +29,7 @@ public class RootControler : MonoBehaviour
 
     public float depth = 0;
     Vector3[] startPositions;
+
     private void Start()
     {
         currentTimeUntilNewRootPoint = timeUntilNewRootPoint;

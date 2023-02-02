@@ -21,9 +21,10 @@ public class WormHP : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        HPPosUpdate();
         if (earthWormHeadGameObject.GetComponent<EarthwormMoveControler>().dead) return;
         HPValueUpdate();
-        HPPosUpdate();
+        
     }
 
     void HPValueUpdate()

@@ -7,6 +7,7 @@ public class GM : MonoBehaviour
 {
     public RootControler rootControler;
     public CameraControler cameraControler;
+    public EarthwormMoveControler earthWorm;
     //public UIManager ui;
     //public AudioManager sfx;
 
@@ -28,6 +29,15 @@ public class GM : MonoBehaviour
     private void Awake()
     {
         //Load();
+    }
+
+    private void Update()
+    {
+        if (rootControler.dead||earthWorm.dead)
+        {
+            rootControler.dead = true;
+            earthWorm.dead = true;
+        }
     }
 
     public void Load()

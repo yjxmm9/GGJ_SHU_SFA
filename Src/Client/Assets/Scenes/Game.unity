@@ -7461,6 +7461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rootControler: {fileID: 814279977}
   cameraControler: {fileID: 268484049}
+  earthWorm: {fileID: 2024011630}
   cash: 0
   maxDepth: 0
   timer: 0

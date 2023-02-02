@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class RootControler : MonoBehaviour
     public float health = 10f;
     public float maxHealth = 10f;
     public LineRenderer root;
-    public GameObject smallRootPrefab;
+    public GameObject oxygenPrefab;
     public Camera mainCamera;
     public Transform rootTarget;
     public float rootTipLenght;
@@ -66,6 +67,12 @@ public class RootControler : MonoBehaviour
     {
         if (dead || !growing) { return; }
         UpdateHealth();
+        ProduceOxygen();
+    }
+
+    private void ProduceOxygen()
+    {
+        
     }
 
     private void UpdateHealth()
@@ -120,20 +127,18 @@ public class RootControler : MonoBehaviour
             //    gM.cameraControler.End();
             //    return;
             //}
-            //Water water = hit.collider.GetComponent<Water>();
-            //if (water != null)
-            //{
-            //    water.Drink();
-            //    gM.sfx.PlayDrinkSFX();
-            //    health = Mathf.Min(health + water.waterAmount, maxHealth);
-            //    Move();
-            //    for (var i = 0; i < 3; i++)
-            //    {
-            //        SmallRoot smallRoot = Instantiate(smallRootPrefab, transform).GetComponent<SmallRoot>();
-            //        smallRoot.Initialize(direction, root.GetPosition(root.positionCount - 3), gM, 0.5f + gM.CapRoot / 5f);
-            //        smallRoots.Add(smallRoot.gameObject);
-            //    }
-            //}
+            Water water = hit.collider.GetComponent<Water>();
+            if (water != null)
+            {
+                water.Drink();
+                //gM.sfx.PlayDrinkSFX();
+                health = Mathf.Min(health + water.waterAmount, maxHealth);
+                Move();
+                Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), -0.02f);
+                Instantiate(oxygenPrefab, oxygenPosition, transform.rotation);
+                //oxygen.Initialize(root.GetPosition(root.positionCount - 1), gM, 0.5f);
+                //smallRoots.Add(smallRoot.gameObject);
+            }
 
             //Poison poison = hit.collider.GetComponent<Poison>();
             //if (poison != null)

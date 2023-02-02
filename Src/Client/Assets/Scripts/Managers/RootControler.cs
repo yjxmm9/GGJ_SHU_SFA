@@ -231,7 +231,7 @@ public class RootControler : MonoBehaviour
             //if (rootPointIndex % (int)(40f / gM.CapRoot + 3f) == 0)
             if (rootPointIndex % (int)(40f / 2f + 3f) == 0)
             {
-                Vector3 oxygenPosition = lastPosition + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(0, 1f), -0.02f);
+                Vector3 oxygenPosition = lastPosition + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(0, 1f), 0.08f);
                 Instantiate(oxygenPrefab, oxygenPosition, oxygenPrefab.transform.rotation);
             }
             //currentTimeUntilNewRootPoint = timeUntilNewRootPoint * gM.CapSpeed;

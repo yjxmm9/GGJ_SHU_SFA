@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EarthwormMoveControler : MonoBehaviour
 {
+    public bool dead = true;
+    public Slider HPSlider;
+    public GameObject poisonPrefab;
+    public LayerMask raycastMask;
     public float speed;//前进速度
     public float turnspeed = 0.5f;//转向速度
     public Vector2 gap;//两个身体节点之间的距离
@@ -19,9 +24,21 @@ public class EarthwormMoveControler : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (dead) { return; }
         Move();
         Turn();
-        EarthwormGrow();
+        Eat();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            EarthwormGrow();
+        }
+
+    }
+
+    public void StartGame()
+    {
+        dead = false;
+        HPSlider.gameObject.SetActive(true);
     }
 
     void Move()
@@ -52,11 +69,35 @@ public class EarthwormMoveControler : MonoBehaviour
 
     void EarthwormGrow()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        GameObject body = Instantiate(bodyPrefab, wormGameObject.transform);
+        body.transform.localPosition = bodyList[bodyList.Count - 1].localPosition - (bodyList[bodyList.Count - 2].localPosition - bodyList[bodyList.Count - 1].localPosition).normalized;
+        bodyList.Add(body.transform);
+    }
+
+    void Eat()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(bodyList[0].position, -bodyList[0].up, out hit, 0.1f, raycastMask))
         {
-            GameObject body = Instantiate(bodyPrefab, wormGameObject.transform);
-            body.transform.localPosition = bodyList[bodyList.Count - 1].localPosition - (bodyList[bodyList.Count - 2].localPosition - bodyList[bodyList.Count - 1].localPosition).normalized;
-            bodyList.Add(body.transform);
+            Poison poison = hit.collider.GetComponent<Poison>();
+            if (poison != null)
+            {
+                //Debug.Log("11");
+                poison.Drink();
+                EarthwormGrow();
+                Vector3 poisonPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
+                Instantiate(poisonPrefab, poisonPosition, poison.transform.rotation);
+            }
+
+            Oxygen oxygen = hit.collider.GetComponent<Oxygen>();
+            //Debug.Log(oxygen);
+            if (oxygen != null)
+            {
+                oxygen.Breath();
+                HPSlider.value += 3;
+                //Debug.Log(hit);
+            }
         }
     }
 }

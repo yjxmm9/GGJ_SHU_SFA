@@ -14,13 +14,14 @@ public class WormHP : MonoBehaviour
     public Camera _camera;
     void Awake()
     {
-        Debug.Log(HPFillImage.color);
+        //Debug.Log(HPFillImage.color);
         HPFillImage.color = new Color(0.252f, 0.499f, 0.877f, 1.000f);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (earthWormHeadGameObject.GetComponent<EarthwormMoveControler>().dead) return;
         HPValueUpdate();
         HPPosUpdate();
     }
@@ -42,7 +43,7 @@ public class WormHP : MonoBehaviour
     }
     void HPPosUpdate()
     {
-        var headPos = _camera.WorldToScreenPoint(earthWormHeadGameObject.transform.position);
+        var headPos = _camera.WorldToScreenPoint(earthWormHeadGameObject.transform.GetChild(0).transform.position);
         HPFillImage.rectTransform.position = new Vector3(headPos.x + 35f, headPos.y, headPos.z);
     }
 }

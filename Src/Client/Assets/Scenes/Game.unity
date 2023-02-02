@@ -261,7 +261,7 @@ MonoBehaviour:
   HPSlider: {fileID: 1222710507}
   HPFillImage: {fileID: 812246539}
   HPDecreaseSpeed: 1
-  earthWormHeadGameObject: {fileID: 1047230524}
+  earthWormHeadGameObject: {fileID: 714728276}
   _camera: {fileID: 519420031}
 --- !u!114 &13779445
 MonoBehaviour:
@@ -2875,7 +2875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.12, z: -5}
+  m_LocalPosition: {x: 0, y: -0.41, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3399,7 +3399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &628088385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3508,7 +3508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628088384}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.44, y: -4.27, z: 0.08}
+  m_LocalPosition: {x: 0.44, y: -4.19, z: 0.08}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4032,6 +4032,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 714728277}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &680220688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4432,7 +4443,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4a652c2198a2b4c92af052302c75a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  dead: 1
+  HPSlider: {fileID: 1222710507}
+  poisonPrefab: {fileID: 8563267437926835632, guid: f1495302e169e4c4481405c9819dde7e,
+    type: 3}
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 1
+  speed: 4
   turnspeed: 2
   gap: {x: 0, y: 0}
   bodyPrefab: {fileID: 346796484417339939, guid: fa984f9875fcf1744a8d8049f67b7a10,
@@ -4450,7 +4468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714728276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.6, z: -0.1}
+  m_LocalPosition: {x: 0.04, y: -1.8, z: -0.1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1047230525}
@@ -4833,7 +4851,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.081}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6290,7 +6308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1222710506
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6300,7 +6318,7 @@ RectTransform:
   m_GameObject: {fileID: 1222710505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.797468, y: 0.3620085, z: 0.41972}
+  m_LocalScale: {x: 1.7990894, y: 0.68629575, z: 0.79570514}
   m_Children:
   - {fileID: 534247683}
   - {fileID: 988679537}

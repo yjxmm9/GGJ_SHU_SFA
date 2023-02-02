@@ -80,22 +80,23 @@ public class EarthwormMoveControler : MonoBehaviour
 
         if (Physics.Raycast(bodyList[0].position, -bodyList[0].up, out hit, 0.1f, raycastMask))
         {
-            Water water = hit.collider.GetComponent<Water>();
-            if (water != null)
+            Poison poison = hit.collider.GetComponent<Poison>();
+            if (poison != null)
             {
-                water.Drink();
+                //Debug.Log("11");
+                poison.Drink();
                 EarthwormGrow();
                 Vector3 poisonPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
-                Instantiate(poisonPrefab, poisonPosition, water.transform.rotation);
+                Instantiate(poisonPrefab, poisonPosition, poison.transform.rotation);
             }
 
             Oxygen oxygen = hit.collider.GetComponent<Oxygen>();
-            Debug.Log(oxygen);
+            //Debug.Log(oxygen);
             if (oxygen != null)
             {
                 oxygen.Breath();
                 HPSlider.value += 3;
-                Debug.Log(hit);
+                //Debug.Log(hit);
             }
         }
     }

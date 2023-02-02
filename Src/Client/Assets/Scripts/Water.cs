@@ -21,12 +21,16 @@ public class Water : MonoBehaviour
 
     IEnumerator DrinkRoutine()
     {
-        Material waterMaterial = myRenderer.material;
+        Material[] waterMaterials = myRenderer.materials;
+        Debug.Log(waterMaterials.Length);
         float waterContent = 1;
         while (waterContent > 0)
         {
             //Debug.Log(drinkCurve.Evaluate(waterContent));
-            waterMaterial.color = new Color(waterMaterial.color.r, waterMaterial.color.g, waterMaterial.color.b, drinkCurve.Evaluate(waterContent));
+            foreach (var material in waterMaterials)
+            {
+                material.color = new Color(material.color.r, material.color.g, material.color.b, drinkCurve.Evaluate(waterContent));
+            }
             waterContent -= Time.deltaTime;
             yield return null;
         }

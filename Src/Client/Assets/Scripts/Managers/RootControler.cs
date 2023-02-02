@@ -135,7 +135,7 @@ public class RootControler : MonoBehaviour
                 health = Mathf.Min(health + water.waterAmount, maxHealth);
                 Move();
                 Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-0.5f, 0.5f), 0.08f);
-                Instantiate(oxygenPrefab, oxygenPosition, transform.rotation);
+                Instantiate(oxygenPrefab, oxygenPosition, oxygenPrefab.transform.rotation);
                 //oxygen.Initialize(root.GetPosition(root.positionCount - 1), gM, 0.5f);
                 //smallRoots.Add(smallRoot.gameObject);
             }
@@ -146,7 +146,7 @@ public class RootControler : MonoBehaviour
                 organic.Eat();
                 Move();
                 Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-0.5f, 0.5f), 0.08f);
-                Instantiate(oxygenPrefab, oxygenPosition, transform.rotation);
+                Instantiate(oxygenPrefab, oxygenPosition, oxygenPrefab.transform.rotation);
 
             }
 
@@ -232,7 +232,7 @@ public class RootControler : MonoBehaviour
             if (rootPointIndex % (int)(40f / 2f + 3f) == 0)
             {
                 Vector3 oxygenPosition = lastPosition + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(0, 1f), -0.02f);
-                Instantiate(oxygenPrefab, oxygenPosition, transform.rotation);
+                Instantiate(oxygenPrefab, oxygenPosition, oxygenPrefab.transform.rotation);
             }
             //currentTimeUntilNewRootPoint = timeUntilNewRootPoint * gM.CapSpeed;
             currentTimeUntilNewRootPoint = timeUntilNewRootPoint * 1f;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2037072711872143360}
   - component: {fileID: 2037072711872143367}
   - component: {fileID: 2037072711872143366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Oxygen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

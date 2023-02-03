@@ -44,7 +44,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     public void StartGame()
     {
         dead = false;
-        Debug.Log("remake");
+        //Debug.Log("remake");
         InitPositionsAndRotations(InitPos, InitRot);
         InitCountOfBody();
         HPSlider.value = 10;
@@ -133,12 +133,12 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
 
     void LimitPosition()
     {
-        if (bodyList[0].localPosition.y > 7)
+        if (bodyList[0].transform.position.y > -0.2)
         {
             InitPositionsAndRotations(InitPos, InitRot);
         }
         LineRenderer root = RootControler.Instance.root;
-        if ((bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y > 3 || (bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y < -6)
+        if ((bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y > 3.3 || (bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y < -6.3)
         {
             InitPositionsAndRotations(root.GetPosition(root.positionCount - 1) + new Vector3(1, -1, 0), InitRot);
         }

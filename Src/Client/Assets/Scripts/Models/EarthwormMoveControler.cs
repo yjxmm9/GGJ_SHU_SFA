@@ -30,7 +30,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     void FixedUpdate()
     {
         if (dead) { return; }
-        Move();
+        //Move();
         Turn();
         Eat();
         LimitPosition();
@@ -98,6 +98,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                 EarthwormGrow();
                 Vector3 organicPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
                 Instantiate(organicPrefab, organicPosition, organicPrefab.transform.rotation);
+                Move();
             }
 
             Oxygen oxygen = hit.collider.GetComponent<Oxygen>();
@@ -106,6 +107,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
             {
                 oxygen.Breath();
                 HPSlider.value += 3;
+                Move();
                 //Debug.Log(hit);
             }
 
@@ -113,8 +115,10 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
             if (hardSoil != null)
             {
                 hardSoil.Break();
+                Move();
             }
         }
+        else { Move(); }
     }
 
     void InitPositionsAndRotations(Vector3 targetPos, Vector3 targetEulerAngle)
@@ -147,7 +151,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
             InitPositionsAndRotations(InitPos, InitRot);
         }
         LineRenderer root = RootControler.Instance.root;
-        if ((bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y > 3.3 || (bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y < -6.3)
+        if ((bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y > 4.0 || (bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y < -7.5)
         {
             InitPositionsAndRotations(root.GetPosition(root.positionCount - 1) + new Vector3(1, -1, 0), InitRot);
         }

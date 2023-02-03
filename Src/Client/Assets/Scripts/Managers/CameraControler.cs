@@ -41,7 +41,7 @@ public class CameraControler : MonoBehaviour
     IEnumerator DeathCam()
     {
         float t = 0;
-        //gm.sfx.DieSFX();
+        AudioManager.Instance.DieSFX();
         while (t < 1f)
         {
             t += Time.deltaTime;

@@ -8,6 +8,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     public bool dead = true;
     public Slider HPSlider;
     public GameObject organicPrefab;
+    //public GameObject headMesh;
     public LayerMask raycastMask;
     public float speed;//前进速度
     public float turnspeed = 0.5f;//转向速度
@@ -18,12 +19,14 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
 
     private Vector3 InitPos;
     private Vector3 InitRot;
+    private Quaternion headMeshRot;
     // Start is called before the first frame update
     protected override void OnStart()
     {
         gap = bodyList[0].localPosition - bodyList[1].localPosition;//初始化gap
         InitPos = bodyList[0].transform.position;
         InitRot = bodyList[0].eulerAngles;
+        //headMeshRot = headMesh.transform.rotation;
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
         {
             EarthwormGrow();
         }
+        //headMesh.transform.rotation = bodyList[0].rotation * headMeshRot;
 
     }
 
@@ -53,7 +57,8 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
 
     void Move()
     {
-        bodyList[0].transform.Translate(-bodyList[0].up.normalized * speed * Time.fixedDeltaTime);//头部一直前进
+        bodyList[0].transform.Translate(bodyList[0].InverseTransformDirection(-bodyList[0].up.normalized) * speed * Time.fixedDeltaTime);//头部一直前进
+        Debug.Log(-bodyList[0].up);
         for (int i = 1; i < bodyList.Count; i++)//身体跟随头部前进
         {
             if (gap.magnitude < (bodyList[i - 1].localPosition - bodyList[i].localPosition).magnitude)//当两个身体节点过近时停止，否则前进

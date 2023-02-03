@@ -9,7 +9,7 @@ public class UISkillItem : MonoBehaviour
     public List<Image> skillPoints;
     public Sprite getPoint;
     public Sprite normalPoint;
-    private int pointIndex=0;
+    private int pointIndex = 0;
     public int PointIndex
     {
         get
@@ -22,11 +22,11 @@ public class UISkillItem : MonoBehaviour
 
             for (int i = 0; i < skillPoints.Count; i++)
             {
-                skillPoints[i].overrideSprite = value >= i+1 ? getPoint : normalPoint;
+                skillPoints[i].overrideSprite = value >= i + 1 ? getPoint : normalPoint;
             }
         }
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +40,6 @@ public class UISkillItem : MonoBehaviour
         {
             this.PointIndex++;
         }
-
+        AudioManager.Instance.UpGradeSFX();
     }
 }

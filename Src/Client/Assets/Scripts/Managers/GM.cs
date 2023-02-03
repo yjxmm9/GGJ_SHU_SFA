@@ -38,6 +38,7 @@ public class GM : MonoBehaviour
             rootControler.dead = true;
             earthWorm.dead = true;
             AudioManager.Instance.growingSource.Stop();
+
         }
     }
 

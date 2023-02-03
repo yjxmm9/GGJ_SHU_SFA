@@ -21,13 +21,20 @@ public class AudioManager : MonoSingleton<AudioManager>
         drinkSource.PlayOneShot(drinkSound);
     }
 
-    public AudioSource noteSource;
-    public List<AudioClip> noteSounds;
+    public AudioSource OrganicSource;
+    public AudioClip OrganicSounds;
 
-    public void PlayNoteSFX(int i)
+    public void OrganicSFX()
     {
-        i = i % noteSounds.Count;
-        noteSource.PlayOneShot(noteSounds[i]);
+        OrganicSource.PlayOneShot(OrganicSounds);
+    }
+
+    public AudioSource UpGradeSource;
+    public AudioClip UpGradeSounds;
+
+    public void UpGradeSFX()
+    {
+        UpGradeSource.PlayOneShot(UpGradeSounds);
     }
 
     public AudioSource musicSource;
@@ -35,11 +42,12 @@ public class AudioManager : MonoSingleton<AudioManager>
     public AudioClip die, rise, blossom, win, final;
 
 
+    public AudioSource DieSource;
+    public AudioClip DieSound;
     public void DieSFX()
     {
         musicSource.volume = 0;
-        //deathSource.Stop();
-        //deathSource.PlayOneShot(die);
+        DieSource.PlayOneShot(DieSound);
     }
 
     public void EndSfx()
@@ -93,7 +101,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     public void MuteAudio(bool mute)
     {
         growingSource.mute = mute;
-        noteSource.mute = mute;
+        //noteSource.mute = mute;
         drinkSource.mute = mute;
         deathSource.mute = mute;
         hurtSource.mute = mute;

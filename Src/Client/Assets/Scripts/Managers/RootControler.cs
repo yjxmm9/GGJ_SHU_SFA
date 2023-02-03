@@ -132,16 +132,18 @@ public class RootControler : MonoSingleton<RootControler>
                 Move();
                 Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-0.5f, 0.5f), 0.08f);
                 Instantiate(oxygenPrefab, oxygenPosition, oxygenPrefab.transform.rotation);
+                AudioManager.Instance.PlayDrinkSFX();
             }
 
             Organic organic = hit.collider.GetComponent<Organic>();
-            if (organic!=null)
+            if (organic != null)
             {
                 organic.Eat();
                 Move();
                 Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-0.5f, 0.5f), 0.08f);
                 Instantiate(oxygenPrefab, oxygenPosition, oxygenPrefab.transform.rotation);
                 CapacityManager.Instance.AddCash();
+                AudioManager.Instance.OrganicSFX();
             }
 
             //Poison poison = hit.collider.GetComponent<Poison>();
@@ -156,7 +158,7 @@ public class RootControler : MonoSingleton<RootControler>
         }
         else
         {
-            
+
             Move();
         }
 

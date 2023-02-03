@@ -22,7 +22,7 @@ public class Water : MonoBehaviour
     IEnumerator DrinkRoutine()
     {
         Material[] waterMaterials = myRenderer.materials;
-        Debug.Log(waterMaterials.Length);
+        //Debug.Log(waterMaterials.Length);
         float waterContent = 1;
         while (waterContent > 0)
         {

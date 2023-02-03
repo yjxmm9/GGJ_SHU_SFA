@@ -78,6 +78,7 @@ public class CameraControler : MonoBehaviour
         );
         gm.rootControler.root.colorGradient = endGradient;
         //gm.ui.ShowDeathUI();
+        UIManager.Instance.Show<UISkill>();
         //gm.sfx.Blossom();
 
         while (gm.rootControler.dead)
@@ -147,6 +148,8 @@ public class CameraControler : MonoBehaviour
         );
         gm.rootControler.root.colorGradient = endGradient;
         //gm.ui.ShowEndUI();
+        UIManager.Instance.Show<UISkill>();
+
 
         while (gm.rootControler.dead)
         {

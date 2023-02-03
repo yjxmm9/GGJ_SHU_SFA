@@ -8,8 +8,6 @@ public abstract class UIWindow : MonoBehaviour
     public delegate void CloseHandler(UIWindow sender, WindowResult result);
     public event CloseHandler OnClose;
 
-    public GameObject Root;
-
     public virtual Type Type { get { return this.GetType(); } }
 
     public enum WindowResult

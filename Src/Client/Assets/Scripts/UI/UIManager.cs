@@ -22,6 +22,7 @@ public class UIManager : Singleton<UIManager>
     {
         //将需要使用UI框架的类添加到管理字典中，才能执行UI框架中的逻辑
         //this.UIResources.Add(typeof(UITest), new UIElement() { Resources = "UI/UITest", Cache = true });
+        this.UIResources.Add(typeof(UISkill), new UIElement() { Resources = "UI/UISkill", Cache = true });
     }
 
     ~UIManager()

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UISkill : UIWindow
 {
+    
+
 
     public override void OnCloseClick()
     {

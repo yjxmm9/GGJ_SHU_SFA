@@ -33,10 +33,11 @@ public class GM : MonoBehaviour
 
     private void Update()
     {
-        if (rootControler.dead||earthWorm.dead)
+        if (rootControler.dead || earthWorm.dead)
         {
             rootControler.dead = true;
             earthWorm.dead = true;
+            AudioManager.Instance.growingSource.Stop();
         }
     }
 

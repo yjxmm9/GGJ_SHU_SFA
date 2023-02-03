@@ -6,7 +6,7 @@ public class AudioManager : MonoSingleton<AudioManager>
 {
     public GM gM;
     public AudioSource growingSource;
-    public List<AudioClip> growSounds;
+
 
     public void PlayGrowingSFX()
     {
@@ -14,11 +14,11 @@ public class AudioManager : MonoSingleton<AudioManager>
     }
 
     public AudioSource drinkSource;
-    public List<AudioClip> drinkSounds;
+    public AudioClip drinkSound;
 
     public void PlayDrinkSFX()
     {
-        drinkSource.PlayOneShot(drinkSounds[Random.Range(0, drinkSounds.Count)]);
+        drinkSource.PlayOneShot(drinkSound);
     }
 
     public AudioSource noteSource;
@@ -38,8 +38,8 @@ public class AudioManager : MonoSingleton<AudioManager>
     public void DieSFX()
     {
         musicSource.volume = 0;
-        deathSource.Stop();
-        deathSource.PlayOneShot(die);
+        //deathSource.Stop();
+        //deathSource.PlayOneShot(die);
     }
 
     public void EndSfx()

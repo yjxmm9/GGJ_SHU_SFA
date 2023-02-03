@@ -2896,6 +2896,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1470524572}
     m_Modifications:
+    - target: {fileID: 201400497105562489, guid: 03d083d9ca7917a49a9d7ffc2342a0ac,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.523
+      objectReference: {fileID: 0}
     - target: {fileID: 6290064978835605888, guid: 03d083d9ca7917a49a9d7ffc2342a0ac,
         type: 3}
       propertyPath: m_Name
@@ -4187,6 +4192,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2024011630}
         m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1043165202}
+        m_MethodName: PlayGrowingSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5766,6 +5782,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1005536941}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1043165202 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6290064978835605917, guid: 03d083d9ca7917a49a9d7ffc2342a0ac,
+    type: 3}
+  m_PrefabInstance: {fileID: 521117841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed0d9059c89caf4b89e4997cac2486f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1067364613
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
 {
     public bool dead = true;
     public Slider HPSlider;
-    public GameObject poisonPrefab;
+    public GameObject organicPrefab;
     public LayerMask raycastMask;
     public float speed;//前进速度
     public float turnspeed = 0.5f;//转向速度
@@ -96,8 +96,8 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                 //Debug.Log("11");
                 poison.Drink();
                 EarthwormGrow();
-                Vector3 poisonPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
-                Instantiate(poisonPrefab, poisonPosition, poison.transform.rotation);
+                Vector3 organicPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
+                Instantiate(organicPrefab, organicPosition, organicPrefab.transform.rotation);
             }
 
             Oxygen oxygen = hit.collider.GetComponent<Oxygen>();
@@ -108,18 +108,27 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                 HPSlider.value += 3;
                 //Debug.Log(hit);
             }
+
+            HardSoil hardSoil = hit.collider.GetComponent<HardSoil>();
+            if (hardSoil != null)
+            {
+                hardSoil.Break();
+            }
         }
     }
 
     void InitPositionsAndRotations(Vector3 targetPos, Vector3 targetEulerAngle)
     {
         bodyList[0].transform.position = targetPos;
-        bodyList[1].localPosition = bodyList[0].localPosition + new Vector3(0, 1, 0);
-        bodyList[2].localPosition = bodyList[0].localPosition + new Vector3(0, 2, 0);
+        for (int i = 1; i < bodyList.Count; i++)
+        {
+            bodyList[i].localPosition = bodyList[0].localPosition + new Vector3(0, i, 0);
+        }
 
-        bodyList[0].eulerAngles = targetEulerAngle;
-        bodyList[1].eulerAngles = targetEulerAngle;
-        bodyList[2].eulerAngles = targetEulerAngle;
+        for (int i = 0; i < bodyList.Count; i++)
+        {
+            bodyList[i].eulerAngles = targetEulerAngle;
+        }
     }
 
     void InitCountOfBody()

@@ -146,13 +146,13 @@ public class RootControler : MonoSingleton<RootControler>
                 AudioManager.Instance.OrganicSFX();
             }
 
-            //Poison poison = hit.collider.GetComponent<Poison>();
-            //if (poison != null)
-            //{
-            //    gM.sfx.HurtSfx();
-            //    poisonned = Mathf.Min(4f, poisonned + 1f);
-            //    Move();
-            //}
+            Poison poison = hit.collider.GetComponent<Poison>();
+            if (poison != null)
+            {
+                //gM.sfx.HurtSfx();
+                poisonned = Mathf.Min(4f, poisonned + 1f);
+                Move();
+            }
 
 
         }

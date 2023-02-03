@@ -29,7 +29,7 @@ public class CameraControler : MonoBehaviour
         }
 
         float depthSoil = mainCamera.transform.position.y / -200f;
-        soilMesh.material.color = soilGradient.Evaluate(depthSoil);
+        //soilMesh.material.color = soilGradient.Evaluate(depthSoil);
     }
 
     public void Death()

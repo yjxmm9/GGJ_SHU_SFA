@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 963027183229502417}
   - component: {fileID: 4614391175335212718}
   - component: {fileID: 817239012863381053}
-  - component: {fileID: 7942077193495563854}
+  - component: {fileID: 4298200018954510057}
   m_Layer: 10
   m_Name: Poison
   m_TagString: Untagged
@@ -95,7 +95,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2212009239438826721, guid: ff6a9f8df01c04941b6f8a9c6d40990a, type: 3}
---- !u!114 &7942077193495563854
+--- !u!114 &4298200018954510057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,10 +104,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3786199248195992551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c2da3a6762c3343960f5bc3162d3f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 584254d5d97eaf2459746f46516ce007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterAmount: 5
   myCollider: {fileID: 817239012863381053}
   myRenderer: {fileID: 4614391175335212718}
   drinkCurve:

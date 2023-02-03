@@ -24,12 +24,12 @@ public class WormHP : MonoBehaviour
         HPPosUpdate();
         if (earthWormHeadGameObject.GetComponent<EarthwormMoveControler>().dead) return;
         HPValueUpdate();
-        
+
     }
 
     void HPValueUpdate()
     {
-        HPSlider.value = HPSlider.value - HPDecreaseSpeed / 50;//每秒损失
+        HPSlider.value = HPSlider.value - HPDecreaseSpeed / 100;//每秒损失
 
         if (HPSlider.value < 3)//HP低于3时变红
         {
@@ -37,14 +37,14 @@ public class WormHP : MonoBehaviour
         }
         else { HPFillImage.color = new Color(0.252f, 0.499f, 0.877f, 1.000f); }
 
-        if (Input.GetKeyDown(KeyCode.E))//接触氧气时，HP增加
+        /*if (Input.GetKeyDown(KeyCode.E))//接触氧气时，HP增加
         {
             HPSlider.value = HPSlider.value + 3;
-        }
+        }*/
     }
     void HPPosUpdate()
     {
-        var headPos = _camera.WorldToScreenPoint(earthWormHeadGameObject.transform.GetChild(0).transform.position);
-        HPFillImage.rectTransform.position = new Vector3(headPos.x + 35f, headPos.y, headPos.z);
+        var headPos = earthWormHeadGameObject.transform.GetChild(0).transform.position;
+        HPSlider.transform.position = new Vector3(headPos.x + 1f, headPos.y, headPos.z);
     }
 }

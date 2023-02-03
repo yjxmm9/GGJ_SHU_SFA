@@ -15,10 +15,15 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     public GameObject bodyPrefab;
     public GameObject wormGameObject;
     public List<Transform> bodyList = new List<Transform>();
+
+    private Vector3 InitPos;
+    private Vector3 InitRot;
     // Start is called before the first frame update
     protected override void OnStart()
     {
         gap = bodyList[0].localPosition - bodyList[1].localPosition;//初始化gap
+        InitPos = bodyList[0].transform.position;
+        InitRot = bodyList[0].eulerAngles;
     }
 
     // Update is called once per frame
@@ -28,7 +33,8 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
         Move();
         Turn();
         Eat();
-        if (Input.GetKeyDown(KeyCode.Space))
+        LimitPosition();
+        if (Input.GetKeyDown(KeyCode.E))
         {
             EarthwormGrow();
         }
@@ -38,6 +44,10 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     public void StartGame()
     {
         dead = false;
+        Debug.Log("remake");
+        InitPositionsAndRotations(InitPos, InitRot);
+        InitCountOfBody();
+        HPSlider.value = 10;
         HPSlider.gameObject.SetActive(true);
     }
 
@@ -98,6 +108,39 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                 HPSlider.value += 3;
                 //Debug.Log(hit);
             }
+        }
+    }
+
+    void InitPositionsAndRotations(Vector3 targetPos, Vector3 targetEulerAngle)
+    {
+        bodyList[0].transform.position = targetPos;
+        bodyList[1].localPosition = bodyList[0].localPosition + new Vector3(0, 1, 0);
+        bodyList[2].localPosition = bodyList[0].localPosition + new Vector3(0, 2, 0);
+
+        bodyList[0].eulerAngles = targetEulerAngle;
+        bodyList[1].eulerAngles = targetEulerAngle;
+        bodyList[2].eulerAngles = targetEulerAngle;
+    }
+
+    void InitCountOfBody()
+    {
+        for (; bodyList.Count > 3;)
+        {
+            Destroy(bodyList[bodyList.Count - 1].gameObject);
+            bodyList.Remove(bodyList[bodyList.Count - 1]);
+        }
+    }
+
+    void LimitPosition()
+    {
+        if (bodyList[0].localPosition.y > 7)
+        {
+            InitPositionsAndRotations(InitPos, InitRot);
+        }
+        LineRenderer root = RootControler.Instance.root;
+        if ((bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y > 3 || (bodyList[0].transform.position - root.GetPosition(root.positionCount - 1)).y < -6)
+        {
+            InitPositionsAndRotations(root.GetPosition(root.positionCount - 1) + new Vector3(1, -1, 0), InitRot);
         }
     }
 }

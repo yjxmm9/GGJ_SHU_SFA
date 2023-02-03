@@ -1214,7 +1214,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5275176984493422545}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 349730261}
+        m_MethodName: OnPointAdd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5275176984541558247
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,8 +1235,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5275176984541558240}
+  - component: {fileID: 349730260}
   m_Layer: 5
-  m_Name: Speed (2)
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1253,6 +1265,27 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0021973, y: -315}
   m_SizeDelta: {x: 776.1067, y: 96.065155}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &349730260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275176984541558247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef62fcdc60b32ec409817b0452262f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 2
+  skillPoints:
+  - {fileID: 5275176985490097072}
+  - {fileID: 5275176985655180193}
+  - {fileID: 5275176984200150066}
+  - {fileID: 5275176985026635452}
+  - {fileID: 5275176984264783222}
+  getPoint: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  normalPoint: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &5275176984664722055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,7 +1558,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5275176984716352376}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 349730259}
+        m_MethodName: OnPointAdd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5275176984717285723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,8 +1579,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5275176984717285700}
+  - component: {fileID: 349730262}
   m_Layer: 5
-  m_Name: Speed
+  m_Name: SpeedHori
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1564,6 +1609,27 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0021973, y: -120}
   m_SizeDelta: {x: 776.1067, y: 96.065155}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &349730262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275176984717285723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef62fcdc60b32ec409817b0452262f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  skillPoints:
+  - {fileID: 5275176984861658451}
+  - {fileID: 5275176985403267252}
+  - {fileID: 5275176984714120999}
+  - {fileID: 5275176985198178921}
+  - {fileID: 5275176984479978469}
+  getPoint: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  normalPoint: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &5275176984729910397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,7 +1813,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2031,8 +2097,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5275176985074580471}
+  - component: {fileID: 349730259}
   m_Layer: 5
-  m_Name: Speed (3)
+  m_Name: Oxygen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2060,6 +2127,27 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0021973, y: -413}
   m_SizeDelta: {x: 776.1067, y: 96.065155}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &349730259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275176985074580470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef62fcdc60b32ec409817b0452262f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 3
+  skillPoints:
+  - {fileID: 5275176985834321164}
+  - {fileID: 5275176984428181029}
+  - {fileID: 5275176983726800434}
+  - {fileID: 5275176983951257513}
+  - {fileID: 5275176985202405310}
+  getPoint: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  normalPoint: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &5275176985198178927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,8 +2757,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5275176985568725796}
+  - component: {fileID: 349730261}
   m_Layer: 5
-  m_Name: Speed (1)
+  m_Name: SpeedVer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2698,6 +2787,27 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0021973, y: -220}
   m_SizeDelta: {x: 776.1067, y: 96.065155}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &349730261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275176985568725819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef62fcdc60b32ec409817b0452262f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1
+  skillPoints:
+  - {fileID: 5275176984880927627}
+  - {fileID: 5275176984006136657}
+  - {fileID: 5275176985525295962}
+  - {fileID: 5275176984261514056}
+  - {fileID: 5275176985227362118}
+  getPoint: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  normalPoint: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &5275176985631107548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2816,7 +2926,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5275176985631107551}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 349730260}
+        m_MethodName: OnPointAdd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5275176985655180199
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,7 +3208,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5275176985830704525}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 349730262}
+        m_MethodName: OnPointAdd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5275176985834321154
 GameObject:
   m_ObjectHideFlags: 0

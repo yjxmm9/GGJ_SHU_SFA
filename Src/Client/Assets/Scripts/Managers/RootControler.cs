@@ -54,6 +54,7 @@ public class RootControler : MonoSingleton<RootControler>
             Destroy(smallRoot);
         }
         smallRoots.Clear();
+        CapacityManager.Instance.Init();
     }
 
     void FixedUpdate()
@@ -157,6 +158,7 @@ public class RootControler : MonoSingleton<RootControler>
         }
         else
         {
+            
             Move();
         }
 

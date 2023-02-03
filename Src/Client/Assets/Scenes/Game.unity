@@ -4816,6 +4816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298419e28357ebf4a93a2c6f1477149f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  global: 0
   gM: {fileID: 1470524571}
   health: 10
   maxHealth: 10
@@ -10172,6 +10173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4a652c2198a2b4c92af052302c75a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  global: 1
   dead: 1
   HPSlider: {fileID: 1835606795}
   poisonPrefab: {fileID: 2037072711872143365, guid: f1495302e169e4c4481405c9819dde7e,

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RootControler : MonoBehaviour
+public class RootControler : MonoSingleton<RootControler>
 {
     public GM gM;
     public float health = 10f;
@@ -30,7 +30,7 @@ public class RootControler : MonoBehaviour
     public float depth = 0;
     Vector3[] startPositions;
 
-    private void Start()
+    protected override void OnStart()
     {
         currentTimeUntilNewRootPoint = timeUntilNewRootPoint;
         health = maxHealth;

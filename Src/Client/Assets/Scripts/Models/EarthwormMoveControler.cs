@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EarthwormMoveControler : MonoBehaviour
+public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
 {
     public bool dead = true;
     public Slider HPSlider;
@@ -16,7 +16,7 @@ public class EarthwormMoveControler : MonoBehaviour
     public GameObject wormGameObject;
     public List<Transform> bodyList = new List<Transform>();
     // Start is called before the first frame update
-    void Awake()
+    protected override void OnStart()
     {
         gap = bodyList[0].localPosition - bodyList[1].localPosition;//初始化gap
     }

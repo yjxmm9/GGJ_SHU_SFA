@@ -13,7 +13,16 @@ class CapacityManager:Singleton<CapacityManager>
     public string DataPath;
     public Dictionary<int, Dictionary<int,CapacityDefine>> Capacities = null;
 
+
     public int[] myPoints = new int[4];
+
+    private string[] prefsName = new string[4]
+    {
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+    };
 
     public int cash;
 
@@ -35,6 +44,17 @@ class CapacityManager:Singleton<CapacityManager>
 
     }
 
+    public float GetSkillPoint(int capacityIdx)
+    {
+        var capacity = this.Capacities[capacityIdx + 1];
+        CapacityDefine define;
+        if (capacity.TryGetValue(myPoints[capacityIdx], out define))
+        {
+            return define.upgrade;
+        }
+        return 0;
+    }
+
     public bool OnAddPoint(int capacityIdx,int pointIdx)
     {
         var capacity = this.Capacities[capacityIdx+1];
@@ -46,7 +66,14 @@ class CapacityManager:Singleton<CapacityManager>
         }
         cash -= define.cost;
         this.myPoints[capacityIdx]++;
+        PlayerPrefs.SetInt(prefsName[capacityIdx], pointIdx);
         return true;
+    }
+
+    public void AddCash()
+    {
+        cash ++;
+        //cash = PlayerPrefs.SetInt("cash", cash);
     }
 
 

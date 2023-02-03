@@ -30,7 +30,7 @@ public class UISkillItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.pointIndex = CapacityManager.Instance.myPoints[index];
+        this.PointIndex = CapacityManager.Instance.myPoints[index];
     }
 
     public void OnPointAdd()

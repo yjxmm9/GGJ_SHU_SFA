@@ -80,8 +80,8 @@ public class RootControler : MonoSingleton<RootControler>
             health -= Time.deltaTime * 1;
             poisonned -= Time.deltaTime;
         }
-        //health -= Time.deltaTime * gM.CapWater;
-        health -= Time.deltaTime * 1.5f;
+        var upgradeWater = CapacityManager.Instance.GetSkillPoint(2);
+        health -= Time.deltaTime * upgradeWater;
         if (health <= 0 && !dead)
         {
             dead = true;
@@ -132,8 +132,6 @@ public class RootControler : MonoSingleton<RootControler>
                 Move();
                 Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-0.5f, 0.5f), 0.08f);
                 Instantiate(oxygenPrefab, oxygenPosition, oxygenPrefab.transform.rotation);
-                //oxygen.Initialize(root.GetPosition(root.positionCount - 1), gM, 0.5f);
-                //smallRoots.Add(smallRoot.gameObject);
             }
 
             Organic organic = hit.collider.GetComponent<Organic>();
@@ -143,7 +141,7 @@ public class RootControler : MonoSingleton<RootControler>
                 Move();
                 Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-0.5f, 0.5f), 0.08f);
                 Instantiate(oxygenPrefab, oxygenPosition, oxygenPrefab.transform.rotation);
-
+                CapacityManager.Instance.AddCash();
             }
 
             //Poison poison = hit.collider.GetComponent<Poison>();
@@ -210,30 +208,30 @@ public class RootControler : MonoSingleton<RootControler>
         Vector3 lastPosition = root.GetPosition(rootPointIndex - 1);
         if (lastPosition.y < depth) { depth = lastPosition.y; }
         Vector3 direction = rootTarget.position - lastPosition;
-        //if (direction.normalized.y < -gM.CapUpward)
-        if (direction.normalized.y < -0.2f)
+        var upgradeMoveVer = CapacityManager.Instance.GetSkillPoint(1);
+        if (direction.normalized.y < -upgradeMoveVer)
         {
             currentTimeUntilNewRootPoint -= Time.fixedDeltaTime;
         }
         else
         {
-            //currentTimeUntilNewRootPoint -= Time.fixedDeltaTime * (Mathf.Max(0, (-direction.normalized.y + gM.CapUpward)));
-            currentTimeUntilNewRootPoint -= Time.fixedDeltaTime * (Mathf.Max(0, (-direction.normalized.y + 0.2f)));
+            currentTimeUntilNewRootPoint -= Time.fixedDeltaTime * (Mathf.Max(0, (-direction.normalized.y + upgradeMoveVer)));
         }
 
         if (currentTimeUntilNewRootPoint <= 0 && Vector3.Distance(rootTarget.position, lastPosition) > rootTipLenght * 5f)
         {
             root.positionCount = root.positionCount + 1;
             rootPointIndex++;
-            //if (rootPointIndex % (int)(40f / gM.CapRoot + 3f) == 0)
-            if (rootPointIndex % (int)(40f / 2f + 3f) == 0)
+            var upgradeOxygen = CapacityManager.Instance.GetSkillPoint(3);
+            //Debug.Log(upgradeOxygen);
+            if (rootPointIndex % (int)(40f / upgradeOxygen + 3f) == 0)
             {
                 Vector3 oxygenPosition = lastPosition + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(0, 1f), 0.08f);
                 Instantiate(oxygenPrefab, oxygenPosition, oxygenPrefab.transform.rotation);
             }
-            //currentTimeUntilNewRootPoint = timeUntilNewRootPoint * gM.CapSpeed;
-            currentTimeUntilNewRootPoint = timeUntilNewRootPoint * 1f;
-            currentTimeUntilNewRootPoint = timeUntilNewRootPoint * 1.1f;
+            var upgradeSpeed = CapacityManager.Instance.GetSkillPoint(0);
+            //Debug.Log(upgradeSpeed);
+            currentTimeUntilNewRootPoint = timeUntilNewRootPoint * upgradeSpeed;
             UpdateRootTip();
             //gM.sfx.PlayGrowingSFX();
         }

@@ -68,12 +68,6 @@ public class RootControler : MonoSingleton<RootControler>
     {
         if (dead || !growing) { return; }
         UpdateHealth();
-        ProduceOxygen();
-    }
-
-    private void ProduceOxygen()
-    {
-        
     }
 
     private void UpdateHealth()

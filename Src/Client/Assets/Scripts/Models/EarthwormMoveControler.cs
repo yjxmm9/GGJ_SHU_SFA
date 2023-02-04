@@ -121,6 +121,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
             {
                 hardSoil.Break();
                 Move();
+                AudioManager.Instance.SoilSFX();
             }
         }
         else { Move(); }

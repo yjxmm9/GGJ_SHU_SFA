@@ -12,6 +12,7 @@ public class UISkill : UIWindow
         RootControler.Instance.StartGame();
         EarthwormMoveControler.Instance.StartGame();
         AudioManager.Instance.growingSource.Play();
+        AudioManager.Instance.MusicBack();
         UIMain.Instance.ShowTopUI();
         this.Close();
     }

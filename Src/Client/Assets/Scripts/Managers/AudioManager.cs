@@ -38,8 +38,6 @@ public class AudioManager : MonoSingleton<AudioManager>
     }
 
     public AudioSource musicSource;
-    public AudioSource deathSource;
-    public AudioClip die, rise, blossom, win, final;
 
 
     public AudioSource DieSource;
@@ -50,74 +48,32 @@ public class AudioManager : MonoSingleton<AudioManager>
         DieSource.PlayOneShot(DieSound);
     }
 
-    public void EndSfx()
+    public void MusicBack()
     {
-        musicSource.volume = 0;
-        deathSource.Stop();
-        deathSource.PlayOneShot(win);
+        musicSource.volume = 1;
     }
 
-    public void StartRise()
+
+    public AudioSource SoilSource;
+    public AudioClip SoilSound;
+    public void SoilSFX()
     {
-        deathSource.Stop();
-
-        deathSource.PlayOneShot(rise);
-    }
-
-    public void Blossom()
-    {
-        deathSource.Stop();
-
-        deathSource.PlayOneShot(blossom);
-    }
-
-    public void BlossomEnd()
-    {
-        deathSource.Stop();
-
-        deathSource.PlayOneShot(final);
+        SoilSource.PlayOneShot(SoilSound);
     }
 
 
 
-    public void Replay()
-    {
-        StartCoroutine(ShowDeathUIRoutine());
-    }
 
-    IEnumerator ShowDeathUIRoutine()
-    {
-        musicSource.volume = 0;
-        float lerp = 0;
-        while (lerp < 0.35f)
-        {
-            musicSource.volume = lerp;
-            lerp += Time.deltaTime;
-            yield return null;
-        }
 
-    }
 
-    public void MuteAudio(bool mute)
-    {
-        growingSource.mute = mute;
-        //noteSource.mute = mute;
-        drinkSource.mute = mute;
-        deathSource.mute = mute;
-        hurtSource.mute = mute;
-    }
 
-    public void MuteMusic(bool mute)
-    {
-        musicSource.mute = mute;
-    }
-    public AudioSource hurtSource;
 
-    public void HurtSfx()
-    {
-        hurtSource.volume = 1f;
-        hurtSource.Play();
-    }
+
+
+
+
+
+
 
     private void Update()
     {

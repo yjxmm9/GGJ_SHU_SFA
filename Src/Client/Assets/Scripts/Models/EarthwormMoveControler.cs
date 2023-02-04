@@ -112,7 +112,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                     //Debug.Log("11");
                     poison.Drink();
                     EarthwormGrow();
-                    Vector3 organicPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
+                    Vector3 organicPosition = bodyList[0].position;
                     Instantiate(organicPrefab, organicPosition, organicPrefab.transform.rotation);
                     Move();
                 }

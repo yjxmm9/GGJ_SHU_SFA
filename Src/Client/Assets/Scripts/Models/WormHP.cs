@@ -29,7 +29,7 @@ public class WormHP : MonoBehaviour
 
     void HPValueUpdate()
     {
-        HPSlider.value = HPSlider.value - HPDecreaseSpeed / 100;//每秒损失
+        HPSlider.value = HPSlider.value - HPDecreaseSpeed / 50;//每秒损失
 
         if (HPSlider.value < 3)//HP低于3时变红
         {

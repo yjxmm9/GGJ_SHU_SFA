@@ -44,7 +44,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     public AudioClip PoisonSound;
     public void PoisonSFX()
     {
-        DieSource.PlayOneShot(PoisonSound);
+        PoisonSource.PlayOneShot(PoisonSound);
     }
 
     public AudioSource DieSource;

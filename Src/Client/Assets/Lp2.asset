@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cdd256b2ad2a741ba8ef83ff5c54bd, type: 3}
+  m_Name: Lp2
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 8471099292164248410, guid: 859fbb0b9736a3540900f9bea534553b, type: 3}
+  - {fileID: 1661528380253536147, guid: 845eaee7f16c89d4ab46f39e67a83096, type: 3}
+  - {fileID: 5247834788780786799, guid: eb5873d271602b244bf518c4274c65fb, type: 3}
+  - {fileID: 3756388053066766790, guid: f21942f35a19cdf4abfd116ca4c81dcb, type: 3}
+  - {fileID: 8777468765808920769, guid: d76d2aa90f9f54440833e4ac07390405, type: 3}
+  - {fileID: 6469844712339529630, guid: 0c440d68383adac47a07eaf430b159fd, type: 3}

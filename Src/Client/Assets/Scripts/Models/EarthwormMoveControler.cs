@@ -109,7 +109,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                 Poison poison = hits[i].GetComponent<Poison>();
                 if (poison != null)
                 {
-                    //Debug.Log("11");
+                    Debug.Log(poison);
                     poison.Drink();
                     EarthwormGrow();
                     Vector3 organicPosition = bodyList[0].position;

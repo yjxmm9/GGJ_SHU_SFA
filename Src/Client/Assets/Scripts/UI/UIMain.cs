@@ -8,7 +8,7 @@ public class UIMain : MonoSingleton<UIMain>
 
     private void Start()
     {
-        UIManager.Instance.Show<UIInit>(this.transform);
+        UIManager.Instance.Show<UIInit>();
     }
 
     public void ShowTopUI()

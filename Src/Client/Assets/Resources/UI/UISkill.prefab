@@ -1284,8 +1284,8 @@ MonoBehaviour:
   - {fileID: 5275176984200150066}
   - {fileID: 5275176985026635452}
   - {fileID: 5275176984264783222}
-  getPoint: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  normalPoint: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  getPoint: {fileID: 21300000, guid: b867fc3e959956d4ebfac578c9efa66b, type: 3}
+  normalPoint: {fileID: 21300000, guid: c382f22f7359ecb4cbd9c997c798b7a3, type: 3}
 --- !u!1 &5275176984664722055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,8 +1628,8 @@ MonoBehaviour:
   - {fileID: 5275176984714120999}
   - {fileID: 5275176985198178921}
   - {fileID: 5275176984479978469}
-  getPoint: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  normalPoint: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  getPoint: {fileID: 21300000, guid: f01aceb050b4bc74f9daa0f5caffdd14, type: 3}
+  normalPoint: {fileID: 21300000, guid: 7fcf55fede3a2174eab06c1e986bd227, type: 3}
 --- !u!1 &5275176984729910397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,8 +2146,8 @@ MonoBehaviour:
   - {fileID: 5275176983726800434}
   - {fileID: 5275176983951257513}
   - {fileID: 5275176985202405310}
-  getPoint: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  normalPoint: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  getPoint: {fileID: 21300000, guid: 93769e02b70cebc41a19b1ba3ec6f0fc, type: 3}
+  normalPoint: {fileID: 21300000, guid: e438c89b693a2b740b77eda67c336c40, type: 3}
 --- !u!1 &5275176985198178927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,8 +2806,8 @@ MonoBehaviour:
   - {fileID: 5275176985525295962}
   - {fileID: 5275176984261514056}
   - {fileID: 5275176985227362118}
-  getPoint: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  normalPoint: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  getPoint: {fileID: 21300000, guid: 2310a9803c7a35f409d1ccc491e302d4, type: 3}
+  normalPoint: {fileID: 21300000, guid: 8b648de7e43d37e459e43fb60a475a03, type: 3}
 --- !u!1 &5275176985631107548
 GameObject:
   m_ObjectHideFlags: 0

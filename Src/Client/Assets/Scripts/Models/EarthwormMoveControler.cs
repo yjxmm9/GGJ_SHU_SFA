@@ -22,6 +22,8 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     private Vector3 InitRot;
     private Quaternion headMeshRot;
 
+    public Animator wormAnim;
+
     public bool isStart = false;
     // Start is called before the first frame update
     protected override void OnStart()

@@ -32,6 +32,7 @@ public class UIInit : UIWindow
 
     public override void OnCloseClick()
     {
+        EarthwormMoveControler.Instance.wormAnim.SetBool("Run", true);
         RootControler.Instance.StartGame();
         EarthwormMoveControler.Instance.StartGame();
         AudioManager.Instance.growingSource.Play();

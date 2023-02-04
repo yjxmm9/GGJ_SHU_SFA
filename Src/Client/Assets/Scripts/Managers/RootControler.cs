@@ -159,7 +159,8 @@ public class RootControler : MonoSingleton<RootControler>
             if (endTrigger != null)
             {
                 AudioManager.Instance.VictorSFX();
-                Time.timeScale = 0;
+                RootControler.Instance.dead = true;
+                gM.cameraControler.End();
             }
 
 

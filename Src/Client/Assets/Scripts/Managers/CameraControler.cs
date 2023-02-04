@@ -96,28 +96,22 @@ public class CameraControler : MonoBehaviour
     {
         StartCoroutine(EndCam());
     }
-    IEnumerator EndCam()
+
+    public void EndRemake()
+    {
+        StartCoroutine(EndRemakeCam());
+    }
+
+    IEnumerator EndRemakeCam()
     {
         float t = 0;
-        //gm.sfx.EndSfx();
+        //AudioManager.Instance.DieSFX();
         while (t < 1f)
         {
             t += Time.deltaTime;
             Vector3 targetPos = gm.rootControler.root.GetPosition(gm.rootControler.rootPointIndex - 1);
             targetPos = new Vector3(Mathf.Clamp(targetPos.x, border.x, border.y), targetPos.y, mainCamera.transform.position.z);
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPos, lerpSpeed);
-            yield return null;
-        }
-        t = 0;
-        // Shake
-        while (t < 1f)
-        {
-            t += Time.deltaTime;
-            Vector3 targetPos = gm.rootControler.root.GetPosition(gm.rootControler.rootPointIndex - 1);
-            targetPos = new Vector3(Mathf.Clamp(targetPos.x, border.x, border.y), targetPos.y, mainCamera.transform.position.z);
-            Vector3 shake = Random.insideUnitCircle * 0.1f;
-            targetPos += shake;
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPos, 1f);
             yield return null;
         }
         //gm.sfx.StartRise();
@@ -133,9 +127,9 @@ public class CameraControler : MonoBehaviour
             gradient.SetKeys(
                 new GradientColorKey[] { new GradientColorKey(gm.rootControler.rootBase, 0.0f),
                 new GradientColorKey(gm.rootControler.rootBase, (index-i)/index - 1f/index),
-                new GradientColorKey(gm.rootControler.rootMagic, (index-i)/index),
-                new GradientColorKey(gm.rootControler.rootMagic, (index-i)/index + 1f/index),
-                new GradientColorKey(gm.rootControler.rootMagic, 1.0f) },
+                new GradientColorKey(gm.rootControler.rootEnd, (index-i)/index),
+                new GradientColorKey(gm.rootControler.rootTip, (index-i)/index + 1f/index),
+                new GradientColorKey(gm.rootControler.rootTip, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
             );
             gm.rootControler.root.colorGradient = gradient;
@@ -143,13 +137,14 @@ public class CameraControler : MonoBehaviour
         }
         Gradient endGradient = new Gradient();
         endGradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(gm.rootControler.rootMagic, 0.0f), new GradientColorKey(gm.rootControler.rootMagic, 1.0f) },
+            new GradientColorKey[] { new GradientColorKey(gm.rootControler.rootTip, 0.0f), new GradientColorKey(gm.rootControler.rootTip, 1.0f) },
             new GradientAlphaKey[] { new GradientAlphaKey(1f, 0.0f), new GradientAlphaKey(1f, 1.0f) }
         );
         gm.rootControler.root.colorGradient = endGradient;
-        //gm.ui.ShowEndUI();
+        //gm.ui.ShowDeathUI();
         UIManager.Instance.Show<UISkill>();
-
+        AudioManager.Instance.musicSource.volume = 1f;
+        //gm.sfx.Blossom();
 
         while (gm.rootControler.dead)
         {
@@ -160,6 +155,19 @@ public class CameraControler : MonoBehaviour
             yield return null;
         }
 
-
+    }
+    IEnumerator EndCam()
+    {
+        float t = 0;
+        //gm.sfx.EndSfx();
+        while (t < 1f)
+        {
+            t += Time.deltaTime;
+            Vector3 targetPos = gm.rootControler.root.GetPosition(gm.rootControler.rootPointIndex - 1);
+            targetPos = new Vector3(Mathf.Clamp(targetPos.x, border.x, border.y), targetPos.y, mainCamera.transform.position.z);
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPos, lerpSpeed);
+            yield return null;
+            UIManager.Instance.Show<UIEnd>();
+        }
     }
 }

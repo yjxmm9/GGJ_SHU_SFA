@@ -18,6 +18,17 @@ public class Oxygen : MonoBehaviour
     {
         oxygenAmount = 5;
         targetPos = transform.position + Vector3.down * moveDis;
+        GM.Instance.OnItemDestroy += ReStart;
+    }
+
+    public void ReStart()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        GM.Instance.OnItemDestroy -= ReStart;
     }
     public void Breath()
     {

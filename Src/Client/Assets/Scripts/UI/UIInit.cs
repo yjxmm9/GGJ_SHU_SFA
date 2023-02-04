@@ -27,7 +27,7 @@ public class UIInit : UIWindow
         EarthwormMoveControler.Instance.StartGame();
         AudioManager.Instance.growingSource.Play();
         UIMain.Instance.ShowTopUI();
-        //LevelManager.Instance.Initialize();
+        LevelManager.Instance.Initialize();
         base.OnCloseClick();
     }
 

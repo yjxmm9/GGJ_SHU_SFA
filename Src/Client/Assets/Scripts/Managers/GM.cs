@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
-public class GM : MonoBehaviour
+public class GM : MonoSingleton<GM>
 {
+    public Action OnItemDestroy;
     public RootControler rootControler;
     public CameraControler cameraControler;
     public EarthwormMoveControler earthWorm;
@@ -26,10 +28,7 @@ public class GM : MonoBehaviour
     //public float CapUpward { get { return capacitiyManagers[3].values[capacities[3]]; } }
     //public float CapRoot { get { return capacitiyManagers[4].values[capacities[4]]; } }
 
-    private void Awake()
-    {
-        //Load();
-    }
+
 
     private void Update()
     {

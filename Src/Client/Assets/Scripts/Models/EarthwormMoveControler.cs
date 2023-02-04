@@ -96,7 +96,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(bodyList[0].position, -bodyList[0].up, out hit, 0.5f, raycastMaskLine))
         {
-            Debug.Log("Rock");
+            //Debug.Log("Rock");
             return;
         }
 

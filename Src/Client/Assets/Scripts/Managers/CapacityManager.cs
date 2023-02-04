@@ -35,8 +35,8 @@ class CapacityManager:Singleton<CapacityManager>
         myPoints[1] = PlayerPrefs.GetInt("P1", 0);
         myPoints[2] = PlayerPrefs.GetInt("P2", 0);
         myPoints[3] = PlayerPrefs.GetInt("P3", 0);
-        //cash = PlayerPrefs.GetInt("cash", 0);
-        cash = 100;
+        cash = PlayerPrefs.GetInt("cash", 0);
+        //cash = 100;
     }
 
     public void Init()
@@ -73,7 +73,7 @@ class CapacityManager:Singleton<CapacityManager>
     public void AddCash()
     {
         cash ++;
-        //cash = PlayerPrefs.SetInt("cash", cash);
+        PlayerPrefs.SetInt("cash", cash);
     }
 
 

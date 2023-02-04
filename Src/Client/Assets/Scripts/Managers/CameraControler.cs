@@ -79,6 +79,7 @@ public class CameraControler : MonoSingleton<CameraControler>
         gm.rootControler.root.colorGradient = endGradient;
         //gm.ui.ShowDeathUI();
         UIManager.Instance.Show<UISkill>();
+        UIMain.Instance.CloseTopUI();
         //gm.sfx.Blossom();
 
         while (gm.rootControler.dead)

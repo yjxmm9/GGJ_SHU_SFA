@@ -8,13 +8,13 @@ public class Organic : MonoBehaviour
 
     private void OnEnable()
     {
-        //GM.Instance.OnItemDestroy += ReStart;
+        GM.Instance.OnItemDestroy += ReStart;
     }
 
-    //public void ReStart()
-    //{
-    //    Destroy(gameObject);
-    //}
+    public void ReStart()
+    {
+        Destroy(gameObject);
+    }
 
     private void OnDestroy()
     {

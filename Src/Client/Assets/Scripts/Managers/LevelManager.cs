@@ -43,7 +43,7 @@ public class LevelManager : MonoSingleton<LevelManager>
             GameObject newTile = Instantiate(randomTile);
             newTile.transform.localPosition -= Vector3.down * depth;
             currentLD.Add(newTile);
-            depth -= 5f;
+            depth -= 5.5f;
         }
     }
 }

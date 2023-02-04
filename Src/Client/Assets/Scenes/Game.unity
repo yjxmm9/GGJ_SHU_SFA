@@ -2025,6 +2025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580cdc233b8ea9844ac0d2fa2ebe118f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  global: 1
   gm: {fileID: 1470524571}
   mainCamera: {fileID: 519420031}
   lerpSpeed: 0.05
@@ -2392,6 +2393,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1140f9bed9377914182350f266bd4b50, type: 2}
   - {fileID: 11400000, guid: 1140f9bed9377914182350f266bd4b50, type: 2}
   - {fileID: 11400000, guid: 1140f9bed9377914182350f266bd4b50, type: 2}
+  - {fileID: 11400000, guid: 392684ed2872792438df60cc61de0f2e, type: 2}
+  - {fileID: 11400000, guid: 392684ed2872792438df60cc61de0f2e, type: 2}
+  - {fileID: 11400000, guid: 392684ed2872792438df60cc61de0f2e, type: 2}
+  - {fileID: 11400000, guid: 392684ed2872792438df60cc61de0f2e, type: 2}
   ldParent: {fileID: 1625587128}
   currentLD: []
 --- !u!1001 &368122398

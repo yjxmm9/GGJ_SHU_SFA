@@ -37,6 +37,11 @@ public class WormHP : MonoBehaviour
         }
         else { HPFillImage.color = new Color(0.252f, 0.499f, 0.877f, 1.000f); }
 
+        if (HPSlider.value == 0) 
+        {
+            EarthwormMoveControler.Instance.dead = true;
+            CameraControler.Instance.Death();
+        }
         /*if (Input.GetKeyDown(KeyCode.E))//接触氧气时，HP增加
         {
             HPSlider.value = HPSlider.value + 3;

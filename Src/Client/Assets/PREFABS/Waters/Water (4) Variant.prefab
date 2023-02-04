@@ -30,12 +30,12 @@ PrefabInstance:
     - target: {fileID: 8895965485471002362, guid: 18f56c1db10f0424a82651ca22fe9436,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.44
+      value: -0.42030048
       objectReference: {fileID: 0}
     - target: {fileID: 8895965485471002362, guid: 18f56c1db10f0424a82651ca22fe9436,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5
+      value: -3.449631
       objectReference: {fileID: 0}
     - target: {fileID: 8895965485471002362, guid: 18f56c1db10f0424a82651ca22fe9436,
         type: 3}
@@ -55,12 +55,12 @@ PrefabInstance:
     - target: {fileID: 8895965485471002362, guid: 18f56c1db10f0424a82651ca22fe9436,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8895965485471002362, guid: 18f56c1db10f0424a82651ca22fe9436,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8895965485471002362, guid: 18f56c1db10f0424a82651ca22fe9436,
         type: 3}
@@ -92,7 +92,7 @@ PrefabInstance:
     - target: {fileID: 8895965485471002367, guid: 18f56c1db10f0424a82651ca22fe9436,
         type: 3}
       propertyPath: m_Name
-      value: Water (4)
+      value: Water (4) Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18f56c1db10f0424a82651ca22fe9436, type: 3}

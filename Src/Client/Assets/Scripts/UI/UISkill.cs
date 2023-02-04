@@ -14,6 +14,7 @@ public class UISkill : UIWindow
         AudioManager.Instance.growingSource.Play();
         AudioManager.Instance.MusicBack();
         UIMain.Instance.ShowTopUI();
-        this.Close();
+        LevelManager.Instance.Initialize();
+        base.OnCloseClick();
     }
 }

@@ -18,7 +18,7 @@ public class Organic : MonoBehaviour
 
     private void OnDestroy()
     {
-        //GM.Instance.OnItemDestroy -= ReStart;
+        GM.Instance.OnItemDestroy -= ReStart;
     }
     internal void Eat()
     {

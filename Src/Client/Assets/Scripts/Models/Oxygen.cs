@@ -28,8 +28,8 @@ public class Oxygen : MonoBehaviour
 
     private void OnDestroy()
     {
-        //if (GM.Instance.OnItemDestroy != null)
-        //    GM.Instance.OnItemDestroy -= ReStart;
+        if (GM.Instance.OnItemDestroy != null)
+            GM.Instance.OnItemDestroy -= ReStart;
     }
     public void Breath()
     {

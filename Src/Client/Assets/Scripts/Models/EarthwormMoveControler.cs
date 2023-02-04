@@ -58,7 +58,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     void Move()
     {
         bodyList[0].transform.Translate(bodyList[0].InverseTransformDirection(-bodyList[0].up.normalized) * speed * Time.fixedDeltaTime);//头部一直前进
-        Debug.Log(-bodyList[0].up);
+        //Debug.Log(-bodyList[0].up);
         for (int i = 1; i < bodyList.Count; i++)//身体跟随头部前进
         {
             if (gap.magnitude < (bodyList[i - 1].localPosition - bodyList[i].localPosition).magnitude)//当两个身体节点过近时停止，否则前进
@@ -98,6 +98,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
         {
             for (int i = 0; i < hits.Length; i++)
             {
+<<<<<<< Updated upstream
                 Poison poison = hits[i].GetComponent<Poison>();
                 if (poison != null)
                 {
@@ -126,6 +127,34 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                     Move();
                     AudioManager.Instance.SoilSFX();
                 }
+=======
+                //Debug.Log("11");
+                poison.Drink();
+                EarthwormGrow();
+                Vector3 organicPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
+                Instantiate(organicPrefab, organicPosition, organicPrefab.transform.rotation);
+                Move();
+            }
+
+            Oxygen oxygen = hit.collider.GetComponent<Oxygen>();
+            //Debug.Log(oxygen);
+            if (oxygen != null)
+            {
+                oxygen.Breath();
+                HPSlider.value += 3;
+                Move();
+                //Debug.Log(hit);
+            }
+
+            HardSoil hardSoil = hit.collider.GetComponent<HardSoil>();
+            
+            if (hardSoil != null)
+            {
+                Debug.Log(hardSoil);
+                hardSoil.Break();
+                Move();
+                AudioManager.Instance.SoilSFX();
+>>>>>>> Stashed changes
             }
         }
         else { Move(); }

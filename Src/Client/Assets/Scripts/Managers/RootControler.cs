@@ -77,6 +77,7 @@ public class RootControler : MonoSingleton<RootControler>
         if (poisonned)
         {
             health -= health / 5;
+            poisonned = false;
         }
         var upgradeWater = CapacityManager.Instance.GetSkillPoint(2);
         health -= Time.deltaTime * upgradeWater;

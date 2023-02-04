@@ -10,6 +10,13 @@ public class LevelManager : MonoSingleton<LevelManager>
     GameObject lastTile;
 
     public List<GameObject> currentLD;
+
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+    }
+
     public void Initialize()
     {
         StartCoroutine(InitRoutine());

@@ -28,7 +28,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
                 return;
             }
             //让这个游戏物体切换场景时不会被摧毁掉，做到全局单例
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
             //防止其他地方没有调用过这个单例导致instance一直为空
             instance = this.gameObject.GetComponent<T>();
         }

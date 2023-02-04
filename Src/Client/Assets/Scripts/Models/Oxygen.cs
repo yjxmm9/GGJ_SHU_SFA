@@ -22,7 +22,7 @@ public class Oxygen : MonoBehaviour
     public void Breath()
     {
         myCollider.enabled = false;
-        Debug.Log("iambreath");
+        //Debug.Log("iambreath");
         StartCoroutine(BreathRoutine());
     }
 

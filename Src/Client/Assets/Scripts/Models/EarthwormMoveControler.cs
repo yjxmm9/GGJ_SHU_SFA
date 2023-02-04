@@ -9,7 +9,8 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     public Slider HPSlider;
     public GameObject organicPrefab;
     //public GameObject headMesh;
-    public LayerMask raycastMask;
+    public LayerMask raycastMaskSphere;
+    public LayerMask raycastMaskLine;
     public float speed;//前进速度
     public float turnspeed = 0.5f;//转向速度
     public Vector2 gap;//两个身体节点之间的距离
@@ -91,11 +92,18 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
 
     void Eat()
     {
-        //RaycastHit hit;
-        Collider[] hits;
-
-        if ((hits = Physics.OverlapSphere(bodyList[0].position, 0.5f, raycastMask)).Length > 0)
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(bodyList[0].position, -bodyList[0].up, out hit, 0.5f, raycastMaskLine))
         {
+            Debug.Log("Rock");
+            return;
+        }
+
+        Collider[] hits;
+        if ((hits = Physics.OverlapSphere(bodyList[0].position, 0.4f, raycastMaskSphere)).Length > 0)
+        {
+
             for (int i = 0; i < hits.Length; i++)
             {
                 Poison poison = hits[i].GetComponent<Poison>();

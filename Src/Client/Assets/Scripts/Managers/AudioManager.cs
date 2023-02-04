@@ -67,6 +67,12 @@ public class AudioManager : MonoSingleton<AudioManager>
     {
         SoilSource.PlayOneShot(SoilSound);
     }
+    public AudioSource EatPoisonSource;
+    public AudioClip EatPoisonSound;
+    public void EatPoisonSFX()
+    {
+        EatPoisonSource.PlayOneShot(EatPoisonSound);
+    }
 
     public AudioSource VictorSource;
     public AudioClip VictorSound;

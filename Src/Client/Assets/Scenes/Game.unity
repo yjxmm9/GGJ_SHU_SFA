@@ -3590,10 +3590,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1470524572}
     m_Modifications:
-    - target: {fileID: 201400497105562489, guid: 03d083d9ca7917a49a9d7ffc2342a0ac,
-        type: 3}
+    - target: {fileID: 1589431323, guid: 03d083d9ca7917a49a9d7ffc2342a0ac, type: 3}
       propertyPath: m_Volume
-      value: 0.523
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 6290064978835605888, guid: 03d083d9ca7917a49a9d7ffc2342a0ac,
         type: 3}
@@ -3657,9 +3656,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6290064978835605917, guid: 03d083d9ca7917a49a9d7ffc2342a0ac,
         type: 3}
-      propertyPath: global
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: EatPoisonSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e553ec0c227b7b24a8ba30b88f749ac7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03d083d9ca7917a49a9d7ffc2342a0ac, type: 3}
 --- !u!4 &521117842 stripped

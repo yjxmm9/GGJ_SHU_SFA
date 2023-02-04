@@ -61,6 +61,14 @@ public class AudioManager : MonoSingleton<AudioManager>
         SoilSource.PlayOneShot(SoilSound);
     }
 
+    public AudioSource VictorSource;
+    public AudioClip VictorSound;
+    public AudioClip victorMusic;
+    public void VictorSFX()
+    {
+        VictorSource.PlayOneShot(VictorSound);
+    }
+
 
 
 

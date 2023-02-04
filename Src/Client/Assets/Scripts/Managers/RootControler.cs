@@ -155,6 +155,13 @@ public class RootControler : MonoSingleton<RootControler>
 
             }
 
+            EndTrigger endTrigger = hit.collider.GetComponent<EndTrigger>();
+            if (endTrigger != null)
+            {
+                AudioManager.Instance.VictorSFX();
+                Time.timeScale = 0;
+            }
+
 
         }
         else

@@ -134,6 +134,8 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                     Move();
                     AudioManager.Instance.SoilSFX();
                 }
+
+
             }
         }
         else { Move(); }

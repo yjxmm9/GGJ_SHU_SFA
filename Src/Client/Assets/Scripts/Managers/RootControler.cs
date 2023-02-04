@@ -25,7 +25,7 @@ public class RootControler : MonoSingleton<RootControler>
 
     public Color rootBase, rootTip, rootWater, rootEnd, rootHurt, rootMagic;
 
-    public float poisonned = 0f;
+    public bool poisonned = false;
 
     public float depth = 0;
     Vector3[] startPositions;
@@ -74,11 +74,9 @@ public class RootControler : MonoSingleton<RootControler>
     private void UpdateHealth()
     {
         gM.timer += Time.deltaTime;
-        if (poisonned > 0f)
+        if (poisonned)
         {
-            //health -= Time.deltaTime * gM.CapStrength;
-            health -= Time.deltaTime * 1;
-            poisonned -= Time.deltaTime;
+            health -= health / 5;
         }
         var upgradeWater = CapacityManager.Instance.GetSkillPoint(2);
         health -= Time.deltaTime * upgradeWater;
@@ -150,7 +148,8 @@ public class RootControler : MonoSingleton<RootControler>
             if (poison != null)
             {
                 //gM.sfx.HurtSfx();
-                poisonned = Mathf.Min(4f, poisonned + 1f);
+                poison.Drink();
+                poisonned = true;
                 Move();
             }
 
@@ -196,9 +195,9 @@ public class RootControler : MonoSingleton<RootControler>
         gradient.SetKeys(
             new GradientColorKey[] { new GradientColorKey(rootBase, 0.0f),
             new GradientColorKey(rootBase, (index-health*2f)/index - 1f/index),
-            new GradientColorKey(poisonned <= 0?rootWater:rootHurt, (index-health*2f)/index),
-            new GradientColorKey(poisonned <= 0?rootWater:rootHurt, (index-health*2f)/index + 1f/index),
-            new GradientColorKey(poisonned <= 0?rootWater:rootHurt, 1.0f) },
+            new GradientColorKey(!poisonned?rootWater:rootHurt, (index-health*2f)/index),
+            new GradientColorKey(!poisonned?rootWater:rootHurt, (index-health*2f)/index + 1f/index),
+            new GradientColorKey(!poisonned?rootWater:rootHurt, 1.0f) },
             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
         );
         root.colorGradient = gradient;

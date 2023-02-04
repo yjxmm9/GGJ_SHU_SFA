@@ -600,7 +600,8 @@ MonoBehaviour:
   global: 1
   dead: 1
   HPSlider: {fileID: 5489802436210780619}
-  organicPrefab: {fileID: 0}
+  organicPrefab: {fileID: 4799908664096420074, guid: 27d119fbcccf39d4f8a0543f8df10a48,
+    type: 3}
   raycastMask:
     serializedVersion: 2
     m_Bits: 1280

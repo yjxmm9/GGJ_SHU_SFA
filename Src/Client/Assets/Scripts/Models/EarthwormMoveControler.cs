@@ -21,6 +21,8 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     private Vector3 InitPos;
     private Vector3 InitRot;
     private Quaternion headMeshRot;
+
+    public bool isStart = false;
     // Start is called before the first frame update
     protected override void OnStart()
     {
@@ -36,7 +38,10 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
         if (dead) { return; }
         //Move();
         Turn();
-        Eat();
+        if (isStart)
+        {
+            Eat();
+        }
         LimitPosition();
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -48,12 +53,20 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
 
     public void StartGame()
     {
+        isStart = false;
+        StartCoroutine(FixBug());
         dead = false;
         //Debug.Log("remake");
         InitPositionsAndRotations(InitPos, InitRot);
         InitCountOfBody();
         HPSlider.value = 10;
         HPSlider.gameObject.SetActive(true);
+    }
+
+    IEnumerator FixBug()
+    {
+        yield return new WaitForSeconds(0.3f);
+        isStart = true;
     }
 
     void Move()

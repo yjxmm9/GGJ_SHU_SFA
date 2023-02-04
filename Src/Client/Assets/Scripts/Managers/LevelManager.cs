@@ -29,7 +29,7 @@ public class LevelManager : MonoSingleton<LevelManager>
             Destroy(oldTile);
         }
 
-        float depth = -10f;
+        float depth = -3f;
 
         foreach (LevelPool levelPool in levelPools)
         {

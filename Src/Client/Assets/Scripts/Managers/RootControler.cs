@@ -151,6 +151,7 @@ public class RootControler : MonoSingleton<RootControler>
                 poison.Drink();
                 poisonned = true;
                 Move();
+
             }
 
 

@@ -25,6 +25,7 @@ public class UIManager : Singleton<UIManager>
         this.UIResources.Add(typeof(UISkill), new UIElement() { Resources = "UI/UISkill", Cache = true });
         this.UIResources.Add(typeof(UIInit), new UIElement() { Resources = "UI/UIInit", Cache = true });
         this.UIResources.Add(typeof(UITop), new UIElement() { Resources = "UI/UITop", Cache = true });
+        this.UIResources.Add(typeof(UITutorial), new UIElement() { Resources = "UI/UITutorial", Cache = true });
     }
 
     ~UIManager()
@@ -34,7 +35,7 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     /// 显示UI逻辑，返回泛型T，为了便于其他类调用T类中的方法（如修改UITest中的标题等方法）
     /// </summary>
-    public T Show<T>(Transform parent=null)
+    public T Show<T>(Transform parent = null)
     {
         //播放音效
         //SoundManager.Instance.PlaySound("ui_open");
@@ -59,7 +60,7 @@ public class UIManager : Singleton<UIManager>
                     return default(T);
                 }
                 //实例化prefab，并赋给Instance
-                info.Instance = (GameObject)GameObject.Instantiate(prefab,parent);
+                info.Instance = (GameObject)GameObject.Instantiate(prefab, parent);
             }
             return info.Instance.GetComponent<T>();
         }

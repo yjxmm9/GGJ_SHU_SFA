@@ -91,37 +91,41 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
 
     void Eat()
     {
-        RaycastHit hit;
+        //RaycastHit hit;
+        Collider[] hits;
 
-        if (Physics.Raycast(bodyList[0].position, -bodyList[0].up, out hit, 0.1f, raycastMask))
+        if ((hits = Physics.OverlapSphere(bodyList[0].position, 0.5f, raycastMask)).Length > 0)
         {
-            Poison poison = hit.collider.GetComponent<Poison>();
-            if (poison != null)
+            for (int i = 0; i < hits.Length; i++)
             {
-                //Debug.Log("11");
-                poison.Drink();
-                EarthwormGrow();
-                Vector3 organicPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
-                Instantiate(organicPrefab, organicPosition, organicPrefab.transform.rotation);
-                Move();
-            }
+                Poison poison = hits[i].GetComponent<Poison>();
+                if (poison != null)
+                {
+                    //Debug.Log("11");
+                    poison.Drink();
+                    EarthwormGrow();
+                    Vector3 organicPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
+                    Instantiate(organicPrefab, organicPosition, organicPrefab.transform.rotation);
+                    Move();
+                }
 
-            Oxygen oxygen = hit.collider.GetComponent<Oxygen>();
-            //Debug.Log(oxygen);
-            if (oxygen != null)
-            {
-                oxygen.Breath();
-                HPSlider.value += 3;
-                Move();
-                //Debug.Log(hit);
-            }
+                Oxygen oxygen = hits[i].GetComponent<Oxygen>();
+                //Debug.Log(oxygen);
+                if (oxygen != null)
+                {
+                    oxygen.Breath();
+                    HPSlider.value += 3;
+                    Move();
+                    //Debug.Log(hit);
+                }
 
-            HardSoil hardSoil = hit.collider.GetComponent<HardSoil>();
-            if (hardSoil != null)
-            {
-                hardSoil.Break();
-                Move();
-                AudioManager.Instance.SoilSFX();
+                HardSoil hardSoil = hits[i].GetComponent<HardSoil>();
+                if (hardSoil != null)
+                {
+                    hardSoil.Break();
+                    Move();
+                    AudioManager.Instance.SoilSFX();
+                }
             }
         }
         else { Move(); }

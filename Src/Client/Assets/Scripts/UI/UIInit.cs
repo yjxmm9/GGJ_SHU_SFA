@@ -7,7 +7,7 @@ public class UIInit : UIWindow
 {
     public Button startButton;
 
-    
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -27,7 +27,13 @@ public class UIInit : UIWindow
         EarthwormMoveControler.Instance.StartGame();
         AudioManager.Instance.growingSource.Play();
         UIMain.Instance.ShowTopUI();
-        LevelManager.Instance.Initialize();
+
         base.OnCloseClick();
+    }
+
+    public void TutorialShow()
+    {
+        UIManager.Instance.Show<UITutorial>();
+        Debug.Log("Show Tutorial");
     }
 }

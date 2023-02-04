@@ -152,7 +152,7 @@ public class RootControler : MonoSingleton<RootControler>
                 poison.Drink();
                 poisonned = true;
                 Move();
-
+                AudioManager.Instance.PoisonSFX();
             }
 
             EndTrigger endTrigger = hit.collider.GetComponent<EndTrigger>();

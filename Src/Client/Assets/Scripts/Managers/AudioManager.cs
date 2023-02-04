@@ -40,6 +40,13 @@ public class AudioManager : MonoSingleton<AudioManager>
     public AudioSource musicSource;
 
 
+    public AudioSource PoisonSource;
+    public AudioClip PoisonSound;
+    public void PoisonSFX()
+    {
+        DieSource.PlayOneShot(PoisonSound);
+    }
+
     public AudioSource DieSource;
     public AudioClip DieSound;
     public void DieSFX()
@@ -66,6 +73,8 @@ public class AudioManager : MonoSingleton<AudioManager>
     public AudioClip victorMusic;
     public void VictorSFX()
     {
+        musicSource.volume = 0;
+        VictorSource.PlayOneShot(victorMusic);
         VictorSource.PlayOneShot(VictorSound);
     }
 

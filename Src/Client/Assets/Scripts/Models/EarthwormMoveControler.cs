@@ -98,7 +98,6 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
         {
             for (int i = 0; i < hits.Length; i++)
             {
-<<<<<<< Updated upstream
                 Poison poison = hits[i].GetComponent<Poison>();
                 if (poison != null)
                 {
@@ -127,34 +126,6 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                     Move();
                     AudioManager.Instance.SoilSFX();
                 }
-=======
-                //Debug.Log("11");
-                poison.Drink();
-                EarthwormGrow();
-                Vector3 organicPosition = bodyList[0].position + new Vector3(0.5f, -0.5f, 0.08f);
-                Instantiate(organicPrefab, organicPosition, organicPrefab.transform.rotation);
-                Move();
-            }
-
-            Oxygen oxygen = hit.collider.GetComponent<Oxygen>();
-            //Debug.Log(oxygen);
-            if (oxygen != null)
-            {
-                oxygen.Breath();
-                HPSlider.value += 3;
-                Move();
-                //Debug.Log(hit);
-            }
-
-            HardSoil hardSoil = hit.collider.GetComponent<HardSoil>();
-            
-            if (hardSoil != null)
-            {
-                Debug.Log(hardSoil);
-                hardSoil.Break();
-                Move();
-                AudioManager.Instance.SoilSFX();
->>>>>>> Stashed changes
             }
         }
         else { Move(); }

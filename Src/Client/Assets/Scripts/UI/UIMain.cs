@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIMain : MonoSingleton<UIMain>
 {
+    public bool isPaused = false;
 
     private void Start()
     {
@@ -21,5 +22,23 @@ public class UIMain : MonoSingleton<UIMain>
     {
         UIManager.Instance.Close(Type.GetType("UITop"));
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false)
+        {
+            isPaused = true;
+            ShowPauseUI();
+        }
+
+    }
+
+    public void ShowPauseUI()
+    {
+        Time.timeScale = 0;
+        UIManager.Instance.Show<UIPause>();
+    }
+
+
 
 }

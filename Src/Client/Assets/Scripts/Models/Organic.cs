@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Organic : MonoBehaviour
 {
-
     private void OnEnable()
     {
         GM.Instance.OnItemDestroy += ReStart;

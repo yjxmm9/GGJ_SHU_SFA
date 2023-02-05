@@ -111,22 +111,10 @@ public class RootControler : MonoSingleton<RootControler>
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(lastPosition, direction, out hit, rootTipLenght, raycastMask))
         {
-            //if (hit.collider.tag == "Core")
-            //{
-            //    dead = true;
-            //    if (gM.timer < gM.maxTime || !gM.newGamePlus)
-            //    {
-            //        gM.maxTime = gM.timer;
-            //        PlayerPrefs.SetFloat("MaxTime", gM.maxTime);
-            //    }
-            //    gM.cameraControler.End();
-            //    return;
-            //}
             Water water = hit.collider.GetComponent<Water>();
             if (water != null)
             {
                 water.Drink();
-                //gM.sfx.PlayDrinkSFX();
                 health = Mathf.Min(health + water.waterAmount, maxHealth);
                 Move();
                 Vector3 oxygenPosition = root.GetPosition(root.positionCount - 1) + new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-0.5f, 0.5f), 0.08f);

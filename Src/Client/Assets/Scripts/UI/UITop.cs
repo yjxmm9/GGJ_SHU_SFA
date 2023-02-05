@@ -11,11 +11,12 @@ public class UITop : UIWindow
     private void OnEnable()
     {
         cash.text = CapacityManager.Instance.cash.ToString();
-        distance.text = RootControler.Instance.depth.ToString();
+        distance.text = (-(int)RootControler.Instance.depth).ToString();
     }
 
     private void Update()
     {
         distance.text = (-(int)RootControler.Instance.depth).ToString();
+        cash.text = CapacityManager.Instance.cash.ToString();
     }
 }

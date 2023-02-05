@@ -7,16 +7,14 @@ using UnityEngine.UI;
 public class UISkill : UIWindow
 {
     public Text cash;
-    public int capCash;
 
     private void OnEnable()
     {
-        capCash= CapacityManager.Instance.cash;
     }
 
     private void Update()
     {
-        if (this.cash != null) this.cash.text = capCash.ToString();
+        if (this.cash != null) this.cash.text = CapacityManager.Instance.cash.ToString();
     }
 
 

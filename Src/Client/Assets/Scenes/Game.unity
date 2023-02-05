@@ -5622,8 +5622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   global: 0
   gM: {fileID: 1470524571}
-  health: 10
-  maxHealth: 10
+  health: 11
+  maxHealth: 14
   root: {fileID: 1612916770}
   oxygenPrefab: {fileID: 2037072711872143365, guid: f1495302e169e4c4481405c9819dde7e,
     type: 3}
@@ -6854,6 +6854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   global: 0
+  isPaused: 0
 --- !u!1001 &1176467320
 PrefabInstance:
   m_ObjectHideFlags: 0

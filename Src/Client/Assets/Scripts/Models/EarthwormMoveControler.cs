@@ -100,6 +100,10 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
 
     void EarthwormGrow()
     {
+        if (this.bodyList.Count>6)
+        {
+            return;
+        }
         GameObject body = Instantiate(bodyPrefab, wormGameObject.transform);
         body.transform.localPosition = bodyList[bodyList.Count - 1].localPosition - (bodyList[bodyList.Count - 2].localPosition - bodyList[bodyList.Count - 1].localPosition).normalized;
         bodyList.Add(body.transform);
@@ -109,14 +113,14 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
     {
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(bodyList[0].position, -bodyList[0].up, out hit, 0.5f, raycastMaskLine))
+        if (Physics.Raycast(bodyList[0].position, -bodyList[0].up, out hit, 0.4f, raycastMaskLine))
         {
             //Debug.Log("Rock");
             return;
         }
 
         Collider[] hits;
-        if ((hits = Physics.OverlapSphere(bodyList[0].position, 0.4f, raycastMaskSphere)).Length > 0)
+        if ((hits = Physics.OverlapSphere(bodyList[0].position, 0.35f, raycastMaskSphere)).Length > 0)
         {
 
             for (int i = 0; i < hits.Length; i++)

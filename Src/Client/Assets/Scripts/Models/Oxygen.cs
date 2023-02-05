@@ -6,9 +6,6 @@ using UnityEngine;
 public class Oxygen : MonoBehaviour
 {
     public float oxygenAmount;
-    public Collider myCollider;
-    public MeshRenderer myRenderer;
-    public AnimationCurve oxygenCurve;
 
     public float lerpSpeed;
     public Vector3 targetPos;
@@ -33,26 +30,13 @@ public class Oxygen : MonoBehaviour
     }
     public void Breath()
     {
-        myCollider.enabled = false;
+        Destroy(gameObject);
         //Debug.Log("iambreath");
-        StartCoroutine(BreathRoutine());
     }
 
     private void Update()
     {
         transform.position = Vector3.Lerp(transform.position, targetPos, lerpSpeed);
-    }
-
-    IEnumerator BreathRoutine()
-    {
-        Material oxygenMaterial = myRenderer.material;
-        float oxygenContent = 1;
-        while (oxygenContent > 0)
-        {
-            oxygenMaterial.color = new Color(oxygenMaterial.color.r, oxygenMaterial.color.g, oxygenMaterial.color.b, oxygenCurve.Evaluate(oxygenContent));
-            oxygenContent -= Time.deltaTime;
-            yield return null;
-        }
     }
 
 }

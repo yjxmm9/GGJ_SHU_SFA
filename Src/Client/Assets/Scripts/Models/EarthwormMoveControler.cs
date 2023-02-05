@@ -138,7 +138,7 @@ public class EarthwormMoveControler : MonoSingleton<EarthwormMoveControler>
                 if (oxygen != null)
                 {
                     oxygen.Breath();
-                    HPSlider.value += 3;
+                    HPSlider.value += 2;
                     Move();
                     //Debug.Log(hit);
                 }
